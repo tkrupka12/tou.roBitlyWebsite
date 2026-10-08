@@ -88,7 +88,7 @@ load_dotenv();
 
 $db_path = env('DB_PATH');
 define('DB_PATH', $db_path !== '' ? $db_path : (__DIR__ . '/db/touro_users.db'));
-define('SHORT_LINK_DOMAIN', env('SHORT_LINK_DOMAIN', 'Tou.ro'));
+define('SHORT_LINK_DOMAIN', env('SHORT_LINK_DOMAIN', 'tou.ro'));
 define('ADMIN_USERNAME', env('ADMIN_USERNAME', 'admin'));
 define('ADMIN_PASSWORD', env('ADMIN_PASSWORD', 'admin123'));
 define('DEFAULT_GROUP_NAME', env('DEFAULT_GROUP_NAME', 'Touro'));
