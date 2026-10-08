@@ -8,31 +8,82 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: #f4f7f6;
+            color: #2c4548;
             margin: 0;
             padding: 0;
         }
         nav {
-            background: #333;
-            color: white;
-            padding: 1rem 2rem;
+            background: #e4ecee;
+            color: #243033;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 0.75rem 1.5rem;
+            align-items: stretch;
             min-width: 0;
             max-width: 100%;
             box-sizing: border-box;
+        }
+        .nav-brand {
+            background: #17848c;
+            color: white;
+            padding: 0.7rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.2rem;
+            flex: 0 0 auto;
+            min-width: 0;
+        }
+        .nav-title {
+            font-size: 1.15rem;
+            line-height: 1.1;
+            font-weight: 700;
+        }
+        .nav-title span {
+            display: block;
+            margin-top: 0.1rem;
+            font-size: 0.92rem;
+            font-weight: 500;
+        }
+        .nav-user {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.25rem 0.35rem;
+            margin-top: 0.15rem;
+            font-size: 0.72rem;
+            line-height: 1.2;
+        }
+        .nav-brand .badge {
+            margin-left: 0;
+            padding: 0.05rem 0.4rem;
+            font-size: 0.62rem;
+        }
+        .nav-brand .badge-group {
+            background: rgba(255, 255, 255, 0.22);
+            color: white;
         }
         .nav-links {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            justify-content: flex-end;
-            gap: 0.55rem 1rem;
+            align-content: center;
+            justify-content: space-evenly;
+            gap: 0.2rem 0.75rem;
+            padding: 0.45rem 1.4rem;
+            flex: 1 1 auto;
             min-width: 0;
             max-width: 100%;
         }
-        nav a { color: white; text-decoration: none; }
+        nav a {
+            color: #3d4a4d;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.75rem 0.35rem;
+            display: inline-block;
+        }
+        nav a:hover { color: #17848c; }
         .container {
             max-width: min(960px, 100%);
             margin: 3rem auto;
@@ -44,8 +95,11 @@
             box-sizing: border-box;
             overflow-wrap: break-word;
         }
+        h2 { color: #17848c; }
+        h3 { color: #12686e; }
+        h4, label, .choice-title, strong, b, .muted strong { color: #3e666a; }
         .form-group { margin-bottom: 1.2rem; }
-        label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #555; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
         input, select {
             width: 100%;
             padding: 0.75rem;
@@ -57,7 +111,7 @@
         }
         button {
             width: 100%;
-            background-color: #0056b3;
+            background-color: #17848c;
             color: white;
             border: none;
             padding: 0.75rem;
@@ -66,9 +120,9 @@
             font-weight: bold;
             cursor: pointer;
         }
-        button:hover { background-color: #004085; }
+        button:hover { background-color: #0f5f66; }
         .flashes { color: #d9534f; margin-bottom: 1rem; list-style: none; padding: 0; }
-        .muted { color: #777; font-size: 0.9rem; }
+        .muted { color: #6a8487; font-size: 0.9rem; }
         .auth-links { text-align: center; margin-top: 1rem; font-size: 0.9rem; }
         .auth-links a { color: #0056b3; text-decoration: none; }
         .badge {
@@ -102,13 +156,22 @@
         .group-card .btn-danger { width: 100%; }
         .group-card .btn-danger { margin-top: 0.45rem; }
         th, td { text-align: left; padding: 0.6rem 0.5rem; border-bottom: 1px solid #eee; vertical-align: top; word-wrap: break-word; }
-        th { font-size: 0.75rem; text-transform: uppercase; color: #666; letter-spacing: 0.03em; }
-        td.expired { color: #999; }
+        th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em; color: #17848c; }
+        td,
+        td strong,
+        td b,
+        td .muted,
+        td.muted,
+        td a,
+        td.stacked-date,
+        td.stacked-date .time,
+        td.expired { color: #000; }
         td .expired-badge { display: inline-block; padding: 0.1rem 0.4rem; background: #f8d7da; color: #a94442; border-radius: 4px; font-size: 0.75rem; margin-left: 0.4rem; }
         .btn-small { width: auto; padding: 0.35rem 0.7rem; font-size: 0.8rem; }
         .truncate { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .stacked-date { font-size: 0.8rem; line-height: 1.25; }
         .stacked-date .time { color: #999; }
+        td.stacked-date .time { color: #000; }
         .note-btn {
             width: auto; background: #eef; color: #335;
             border: 1px solid #ccd; border-radius: 4px;
@@ -121,7 +184,7 @@
         }
         .note-btn-empty:hover { background: #f4f4f4; color: #555; }
         .copy-btn {
-            width: auto; background: transparent; color: #0056b3;
+            width: auto; background: transparent; color: #12686e;
             border: 1px solid #cde; border-radius: 4px;
             padding: 0.15rem 0.4rem; font-size: 0.75rem; cursor: pointer;
             margin-top: 0.3rem; font-weight: 600;
@@ -167,7 +230,7 @@
         }
         .btn-danger:hover { background: #c9302c; }
         .section { margin-bottom: 1.25rem; }
-        .section > h3 { margin: 0 0 0.2rem; font-size: 1rem; color: #333; }
+        .section > h3 { margin: 0 0 0.2rem; font-size: 1rem; }
         .field-hint { color: #777; font-size: 0.85rem; margin: 0 0 0.7rem; }
         .choice {
             display: block; position: relative;
@@ -177,7 +240,7 @@
         .choice input[type="radio"] {
             width: auto; position: absolute; left: 0; top: 0.15rem; margin: 0;
         }
-        .choice-title { display: block; font-weight: 600; color: #333; }
+        .choice-title { display: block; font-weight: 600; }
         .choice-desc { display: block; color: #777; font-size: 0.85rem; margin-top: 0.1rem; }
         .url-row { display: flex; align-items: stretch; }
         .url-prefix {
@@ -188,18 +251,23 @@
         .url-row input { border-radius: 0 6px 6px 0; }
         .link-preview {
             background: #f7f7f7; border-radius: 6px; padding: 0.8rem 1rem;
-            font-weight: 600; color: #0056b3; word-break: break-all;
+            font-weight: 600; color: #12686e; word-break: break-all;
         }
         .link-preview .placeholder { color: #999; font-weight: normal; }
         @media (max-width: 800px) {
-            nav {
-                flex-direction: column;
-                align-items: stretch;
-                padding: 0.85rem 1rem;
+            nav { flex-direction: column; }
+            .nav-brand { padding: 0.85rem 1rem; }
+            .nav-links {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.15rem 0.4rem;
+                padding: 0.45rem 0.7rem 0.65rem;
             }
-            .nav-links { justify-content: flex-start; }
-            .nav-user { flex-basis: 100%; }
-            nav a { display: inline-block; padding: 0.5rem 0.1rem; }
+            nav a {
+                text-align: center;
+                padding: 0.7rem 0.3rem;
+                letter-spacing: 0.04em;
+            }
             .container {
                 margin: 0.75rem;
                 padding: 1.1rem;
@@ -221,17 +289,21 @@
 </head>
 <body>
 <nav>
-    <div><strong><?= e(SHORT_LINK_DOMAIN) ?></strong> Link Manager</div>
-    <div class="nav-links">
+    <div class="nav-brand">
+        <div class="nav-title"><?= e(SHORT_LINK_DOMAIN) ?><span>Link Manager</span></div>
         <?php if ($current_user): ?>
-        <?php $manages_a_group = $current_user['is_super'] || $current_user['is_group_admin']; ?>
-        <span class="nav-user">Logged in as: <strong><?= e($current_user['display_name']) ?></strong><?php
+        <div class="nav-user"><?= e($current_user['display_name']) ?><?php
             if ($current_user['is_super']): ?><span class="badge badge-admin">super admin</span><?php
             elseif ($current_user['is_group_admin']): ?><span class="badge badge-admin">group admin</span><?php
             endif; ?><?php
             if ($current_group_name !== null): ?><span class="badge badge-group"><?= e($current_group_name) ?></span><?php
             elseif ($current_user['is_super']): ?><span class="badge badge-group">all groups</span><?php
-            endif; ?></span>
+            endif; ?></div>
+        <?php endif; ?>
+    </div>
+    <div class="nav-links">
+        <?php if ($current_user): ?>
+        <?php $manages_a_group = $current_user['is_super'] || $current_user['is_group_admin']; ?>
         <a href="<?= e(url_for('index')) ?>">Create Custom Link</a>
         <?php if ($manages_a_group): ?>
         <a href="<?= e(url_for('admin_expired')) ?>">Expired Links</a>
